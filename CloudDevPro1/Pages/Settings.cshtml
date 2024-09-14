@@ -1,0 +1,169 @@
+﻿@page
+@model CloudDevPro1.Pages.SettingsModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <style>
+        /* Simple CSS styles for the page */
+       
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .h1{
+            color:white;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .button:hover {
+                background-color: #3e8e41;
+            }
+
+        .setting-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .setting-list li {
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+
+                .setting-list li:last-child {
+                    border-bottom: none;
+                }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fullContainer banner" id="homeSection">
+        <header>
+
+            <div class="containers">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/Index">Home</a>
+                        </li>
+                        <li>
+                            <a href="/Customer">Customer</a>
+                        </li>
+                        <li>
+                            <a href="/Products">Product</a>
+                        </li>
+                        <li>
+                            <a href="View">View All</a>
+                        </li>
+
+                        <li>
+                            <a href="/Settings">Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    </div>
+
+
+   
+        <h1>Settings</h1>
+        <form>
+            <h2>Scalability and Cost Management</h2>
+            <label for="storageTier">Storage Tier:</label>
+            <select id="storageTier" class="form-control">
+                <option value="hot">Hot Storage</option>
+                <option value="cool">Cool Storage</option>
+                <option value="archive">Archive Storage</option>
+            </select>
+            <br />
+            <label for="redundancy">Redundancy Settings:</label>
+            <select id="redundancy" class="form-control">
+                <option value="locally-redundant">Locally Redundant</option>
+                <option value="zone-redundant">Zone Redundant</option>
+                <option value="geo-redundant">Geo Redundant</option>
+            </select>
+            <br />
+            <br />
+            <button class="button" id="saveSettings">Save</button>
+        </form>
+
+        <br />
+        <br />
+        <h2>Current Configuration:</h2>
+        <br />
+        <br />
+    <table id="currentConfig">
+        <thead>
+        <tr>
+            <th>Storage Tier</th>
+            <th>Redundancy</th>
+        </tr>
+        </thead>
+        <tbody id="SettingsList">
+            <!-- Current configuration settings will be displayed here -->
+        </tbody>
+       
+    </table>
+  
+
+    <script>
+        // Get the save button and current config table
+        const getStorage = document.getElementById('storageTier')
+        const getRedun = document.getElementById('redundancy')
+        const saveButton = document.getElementById('saveSettings');
+        const currentConfigTableBody = document.getElementById('SettingsList');
+
+        // Add event listener to the save button
+        saveButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Get the selected storage tier and redundancy settings
+            const storageTier = getStorage.value;
+            const redundancy = getRedun.value;
+
+            // Create a new table row for the current configuration
+            const tableRow = document.createElement('tr');
+            tableRow.innerHTML = `
+                                 <td>${storageTier}</td>
+                                 <td>${redundancy}</td>
+                            `;
+
+            // Add the table row to the current config table
+            currentConfigTableBody.appendChild(tableRow);
+
+            // Clear the form inputs
+            getStorage.value = '';
+            getRedun.value = '';
+        });
+    </script>
+</body>
+</html>

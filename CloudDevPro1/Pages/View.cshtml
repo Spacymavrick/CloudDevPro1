@@ -2,3 +2,151 @@
 @model CloudDevPro1.Pages.ViewModel
 @{
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounded Border Table</title>
+    <style>
+        .table-container {
+            overflow: hidden;
+            border-radius: 15px;
+            background-color:white;
+        }
+
+        .rounded-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            .rounded-table th, .rounded-table td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .rounded-table thead th:first-child {
+                border-top-left-radius: 15px;
+            }
+
+            .rounded-table thead th:last-child {
+                border-top-right-radius: 15px;
+            }
+
+            .rounded-table tbody tr:last-child td:first-child {
+                border-bottom-left-radius: 15px;
+            }
+
+            .rounded-table tbody tr:last-child td:last-child {
+                border-bottom-right-radius: 15px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="fullContainer banner" id="homeSection">
+        <header>
+
+            <div class="containers">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/Index">Home</a>
+                        </li>
+                       
+                        <li>
+                            <a href="/Settings">Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    </div>
+
+
+<div class="container">
+    <h2 style=" text-align:center">Order History</h2>
+    
+        <div class="table-container">
+            <table class="rounded-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lesego Pitso </td>
+                        <td>067 914 4092</td>
+                    </tr>
+                    <tr>
+                        <td>Junior </td>
+                        <td>078 812 1723</td>
+                    </tr>
+                    <tr>
+                        <td>Ralph </td>
+                        <td>082 813 2295</td>
+                    </tr>
+                    <tr>
+                        <td>Gemini </td>
+                        <td>072 142 8753</td>
+                    </tr>
+                    <tr>
+                        <td>Kenny Jr </td>
+                        <td>067 812 5490</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>.
+        <div class="container1">
+            <h2 style="text-align:center">Products</h2>
+
+            <div class="table-container">
+                <table class="rounded-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Price </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple </td>
+                            <td>IOS Phone </td>
+                            <td> 2 000 </td>
+                        </tr>
+                        <tr>
+                            <td>Samsung </td>
+                            <td>Android Phone</td>
+                            <td> 2 200 </td>
+                        </tr>
+                        <tr>
+                            <td>Huawei </td>
+                            <td>Android Phone</td>
+                            <td> 2 210 </td>
+                        </tr>
+                        <tr>
+                            <td>Sony PlayStation 5 </td>
+                            <td>Gaming Console</td>
+                            <td> 12 000 </td>
+                        </tr>
+                        <tr>
+                            <td>Xbox One </td>
+                            <td>Microsoft product</td>
+                            <td> 11 000 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </body>
+</html>
